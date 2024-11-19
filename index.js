@@ -11,7 +11,6 @@ async function run() {
 
     console.log("Conexion correcta");
 
-
 // AÑADIR COLUMNA 
 
     // let [result1] = await connection.query("ALTER TABLE direcciones ADD COLUMN codigo_postal VARCHAR(10)");
@@ -40,14 +39,12 @@ async function run() {
     // let [tabla4] = await connection.query("SELECT * FROM marks");
     // console.log(tabla4);
 
-
-// OBTENER DATOS 
+// OBTENER DATOS DE UNA TABLA
 
     // let [result5]= await connection.query("SELECT first_name, last_name FROM students")
     // console.log(result5);
 
-
-// OBTENER TODOS LOS DATOS DE UNA TABLA
+// OBTENER TABLA
 
     let[result6] = await connection.query("SELECT * FROM teachers");
     console.log(result6);
