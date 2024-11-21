@@ -15,8 +15,9 @@ const getAllUsers = async (request, response) => {
 const getUserById= async (request, response) =>
 {
     try {
-        let sql = `SELECT * FROM students WHERE student_id=` + request.params.id;
-        let [result] = await pool.query(sql);
+        let param = request.params.id;
+        let sql = `SELECT * FROM students WHERE student_id= ?`;
+        let [result] = await pool.query(sql, param);
         response.send(result);
     }
     catch (error){
@@ -79,9 +80,9 @@ const putUser = async (request, response) =>
 const deleteUser = async (request, response) =>
 {
     try {
-        let param = request.body.student_id
+        let value = request.body.student_id
         let sql = "DELETE FROM students WHERE student_id = ?";
-        let [result] = await pool.query(sql,param);
+        let [result] = await pool.query(sql,value);
         response.send(result); 
     }
     catch(error){
